@@ -12,7 +12,7 @@ echo "tasks: "
 jq < $workFile
 
 # submit a review for the first one
-id=$(jq '.[0].id' < $workFile)
+id=$(jq '.[0].id' $workFile)
 echo "id = $id"
 curl -X POST -H 'Content-Type: application/json' -d "{ \"id\": $id, \"status\": true }" $baseUrl/review
 
